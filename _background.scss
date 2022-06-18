@@ -1,19 +1,17 @@
-// stylelint-disable declaration-no-important
+// Background Gradient Utilities
 
 @each $color, $value in $theme-colors {
-  @include bg-variant(".bg-#{$color}", $value, true);
-}
-
-@if $enable-gradients {
-  @each $color, $value in $theme-colors {
-    @include bg-gradient-variant(".bg-gradient-#{$color}", $value, true);
+  .bg-gradient-#{$color} {
+    background-color: $value;
+    background-image: linear-gradient(180deg, $value 10%, darken($value, 15%) 100%);
+    background-size: cover;
   }
 }
 
-.bg-white {
-  background-color: $white !important;
-}
+// Grayscale Background Utilities
 
-.bg-transparent {
-  background-color: transparent !important;
+@each $level, $value in $grays {
+  .bg-gray-#{$level} {
+    background-color: $value !important;
+  }
 }
